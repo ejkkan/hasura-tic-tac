@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Box, Typography } from "@mui/material";
+import Board from "./views/Board";
+import StartScreen from "./views/StartScreen";
+import { useGameContext } from "./contexts/GameContext";
 
 function App() {
+  const { tiles, gameRunning } = useGameContext();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="App">
+      <Typography variant="h1">Tic tac toe</Typography>
+      {gameRunning ? <Board tiles={tiles} /> : <StartScreen />}
+    </Box>
   );
 }
 
