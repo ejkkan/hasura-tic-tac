@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useGameContext, Tile as TileProp } from "../contexts/GameContext";
 
@@ -6,7 +7,7 @@ interface TileProps {
   position: number;
 }
 
-function Tile({ mark, position }: TileProps) {
+const Tile: React.FC<TileProps> = ({ mark, position }) => {
   const { pickTile } = useGameContext();
   return (
     <Box
@@ -24,6 +25,6 @@ function Tile({ mark, position }: TileProps) {
       <Typography variant="h3">{mark}</Typography>
     </Box>
   );
-}
+};
 
 export default Tile;

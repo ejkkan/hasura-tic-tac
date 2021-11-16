@@ -10,7 +10,7 @@ interface BoardProps {
   tiles: Tiles;
 }
 
-function Board({ tiles }: BoardProps) {
+const Board: React.FC<BoardProps> = ({ tiles }) => {
   const { grid, currentPlayer } = useGameContext();
   return (
     <Box className="App">
@@ -30,6 +30,6 @@ function Board({ tiles }: BoardProps) {
       </Box>
     </Box>
   );
-}
+};
 
 export default Board;

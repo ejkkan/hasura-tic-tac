@@ -1,9 +1,9 @@
 import { Tiles, Tile } from "../contexts/GameContext";
 
-const checkAllEqual = (arr: Tiles) =>
+const checkAllEqual = (arr: Tiles): boolean =>
   arr.every((t) => t !== null && t === arr[0]);
 
-export const isWinningMove = (tiles: Tiles, grid: number) => {
+export const isWinningMove = (tiles: Tiles, grid: number): boolean => {
   let isWinner = false;
 
   //HORZONTAL

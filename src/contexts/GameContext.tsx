@@ -7,11 +7,11 @@ export type Tiles = Tile[];
 interface GameContextProps {
   tiles: (null | string)[];
   currentPlayer: string;
-  pickTile: (tilePosition: number) => void;
   grid: number;
-  onPickGridSize: (size: number) => void;
   gameRunning: boolean;
   setGameRunning: (status: boolean) => void;
+  onPickGridSize: (size: number) => void;
+  pickTile: (tilePosition: number) => void;
 }
 
 const initialState = {
@@ -19,18 +19,22 @@ const initialState = {
   tiles: [null, null, null, null, null, null, null, null, null],
   currentPlayer: "X",
   gameRunning: false,
-  pickTile: () => {},
   setGameRunning: () => {},
   onPickGridSize: () => {},
+  pickTile: () => {},
 };
 
 const GameContext = React.createContext<GameContextProps>(initialState);
 
-const GameContextProvider = ({ children }: any) => {
+const GameContextProvider: React.FC = ({ children }) => {
   const [tiles, setTiles] = useState<Tiles>(initialState.tiles);
-  const [currentPlayer, setCurrentPlayer] = useState<string>("X");
-  const [grid, setGridSize] = useState<number>(3);
-  const [gameRunning, setGameRunning] = useState<boolean>(false);
+  const [currentPlayer, setCurrentPlayer] = useState<string>(
+    initialState.currentPlayer
+  );
+  const [grid, setGridSize] = useState<number>(initialState.grid);
+  const [gameRunning, setGameRunning] = useState<boolean>(
+    initialState.gameRunning
+  );
 
   const onPickGridSize = (size: number) => {
     setGridSize(size);

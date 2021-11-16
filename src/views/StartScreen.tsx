@@ -3,7 +3,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { useGameContext } from "../contexts/GameContext";
 
-function StartScreen({}) {
+const StartScreen: React.FC = ({}) => {
   const { grid, onPickGridSize, setGameRunning } = useGameContext();
 
   return (
@@ -30,6 +30,6 @@ function StartScreen({}) {
       </Box>
     </Box>
   );
-}
+};
 
 export default StartScreen;
